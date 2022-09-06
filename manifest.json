@@ -1,0 +1,26 @@
+{
+    "name": "Fair-enough?",
+    "version": "1.0.0",
+    "description": "is the page fair?",
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": ["contentScript.js"],
+          "run_at": "document_idle"
+        }
+      ]
+,
+    "host_permissions": ["<all_urls>"],
+    "action":{
+        "default_popup": "index.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+      },
+      "permissions" :  ["storage"],
+    
+    "manifest_version": 3
+
+
+}
+
