@@ -6,9 +6,10 @@ async function highlightSearchTerms()
     var bodyText = document.body.innerHTML; 
     var searchTerm = "doi";
     var end = "</p>";
-    //HTML code to highlight DOI's
+    //HTML code used to highlight DOI's
     var highlightStartTag = "<font style='color:blue; background-color:yellow;'>";
     var highlightEndTag = "</font>";
+    //Find dois in HTML code and add to array 
     const dois = [];
     var index = 0;
     var newText = "";
@@ -32,6 +33,7 @@ async function highlightSearchTerms()
             var text = bodyText.substr(i,check);
             // regular expression
             var info = text.match(/\b10\.(\d+\.*)+[\/](([^\s\.])+\.*)+\b/);
+            // highlight DOI's if any are found
             if(info != null){
               console.log(info[0])
               newText += bodyText.substr(0, i+info.index) + highlightStartTag +  bodyText.substr(i+info.index, info[0].length ) + highlightEndTag  ;
@@ -50,7 +52,9 @@ async function highlightSearchTerms()
         }
       }
     }
+    // set the new highlighted text as the new document's HTML
     document.body.innerHTML = newText;
+    // Send DOI's to Background json as a message
     chrome.runtime.sendMessage({
       data: dois // send data to background
     });
@@ -71,7 +75,7 @@ async function highlightSearchTerms()
 }
 
 
-
+// initiates functions when a website is visited
 highlightSearchTerms();
 
 
