@@ -1,3 +1,8 @@
+// Copyright 2022 Maastricht University Library
+
+// Use of this source code is governed by an MIT-style
+// license that can be found in the LICENSE file or at
+// https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/LICENSE
 
 // Original version of bundle.js
 

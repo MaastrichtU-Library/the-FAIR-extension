@@ -1,0 +1,32 @@
+
+---
+abstract: "The FAIR extension, an open-source, user-friendly web browser extension that allows researchers to do FAIRness evaluations directly to the web source"
+authors:
+  -
+    affiliation: "Maastricht University"
+    family-names: Hernández Serrano
+    given-names: "Pedro V."
+    orcid: "https://orcid.org/0000-0002-4646-4666"
+  -
+    affiliation: "Maastricht University"
+    family-names: Emonet
+    given-names: Vincent
+    orcid: ""
+  -
+    affiliation: "Maastricht University"
+    family-names: Al-Saeedi
+    given-names:  Ali
+    orcid: """
+
+cff-version: "1.0.0"
+date-released: "2022-10-01"
+keywords:
+  - "FAIR assessment"
+  - "FAIR  Digital Objects"
+  - "FAIR  metrics"
+license: "MIT License"
+message: "If you use this software, please cite it using these metadata."
+repository-code: "https://github.com/MaastrichtU-Library/the-FAIR-extension"
+title: theFAIRextension
+version: "0.1.1"
+...
