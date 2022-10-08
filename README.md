@@ -1,5 +1,14 @@
-# the-FAIR-extension-Demo
-The-FAIR-extension aims to make access to FAIR easier by detecting DOI's in a digital object, highlighting the DOI's and giving the user the option to check how FAIR each DOI is.<br>
+# the-FAIR-extension
+
+[![npm version](https://badge.fury.io/js/npm.svg)](https://badge.fury.io/js/npm)
+[![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B%20%20%E2%97%8B-orange)](https://fair-software.eu)
+
+---
+
+"The FAIR extension", an open-source, user-friendly web browser extension that allows researchers to do FAIRness evaluations directly to the web source.<br>
+
+---
+## Quickstart
 
 To run the extension:<br>
 1- Download the project as Zip folder <br>
@@ -8,5 +17,4 @@ To run the extension:<br>
 4- Activate Developer mode on top-right<br>
 5-Load unpacked -> downloaded project folder -> select folder<br>
 Finally, you can use the extension on the page of your choice.
-[![npm version](https://badge.fury.io/js/npm.svg)](https://badge.fury.io/js/npm)
-[![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B%20%20%E2%97%8B-orange)](https://fair-software.eu)
+
