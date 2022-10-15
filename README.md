@@ -15,12 +15,18 @@ To run the extension as user:<br>
 3- Go to Extensions page in Google Chrome<br>
 4- Activate Developer mode on top-right<br>
 5-Load unpacked -> downloaded project folder -> select folder<br>
-6-Click on Details
-7-Change Site Access from "On all sites" to "On click"  
+6-Click on Details<br>
+7-Change Site Access from "On all sites" to "On click"  <br>
 Now you are set to use the extension on the page of your choice, let us see an example of how the extension works, for this example we will look at the following article (https://www.frontiersin.org/articles/10.3389/frcmn.2022.824593/full) :
 
-STEP 1: open the website and give access to the extension.
-<img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/user1.png" alt="logo" lign="middle" style="width: 50%; height: 50%"/>
+STEP 1: open the website and give access to the extension.<br>
+<img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/user1.png" alt="logo" lign="middle" style="width: 60%; height: 60%"/>
+
+STEP 2: The DOI's will be detected and highlighted, next step would be clicking the extension again<br>
+<img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/user2.png" alt="logo" lign="middle" style="width: 60%; height: 60%"/>
+
+STEP 3: The list of DOI's will be previewed, the FAIR score of the first detected DOI can also be seen. <br>
+<img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/user3.png" alt="logo" lign="middle" style="width: 60%; height: 60%"/>
 
 
 ---
