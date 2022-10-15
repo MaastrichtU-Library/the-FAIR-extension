@@ -37,7 +37,7 @@ STEP 3: The list of DOI's will be previewed, the FAIR score of the first detecte
 1- Download the project as Zip folder <br>
 2- Extract the folder<br>
 3- Use a code editor such as visual studio code to edit the files.<br>
-### Change to those files will do the following:
+### Changes to those files will do the following:
  - Manifest.json: This files controls the structure of the extension from the most basic elements such as the title to the most complex such as the permissions and the workflow of the extension.<br> <br>
  - background.js: This file is considered the medium between the files of the extension, maintains the communication between content scripts and popup json files.<br> <br>
 
@@ -68,7 +68,7 @@ After applying any changes and saving them, follow the steps in "Quickstart for 
 
 1. A student wanting to make use of a DO (e.g. software package), but doesn't know which to choose. The FAIR extension will indicate which one is more FAIR and aid the decision making process
 2. A Data steward recommending sources
-3. A researcher who wants to display all FAIR metrics of her DOs on a research profile
+3. A researcher who wants to display all FAIR metrics of their DOs on a research profile
 4. A PI that wants to evaluate an aggregated metric for a project.
 
 ---
