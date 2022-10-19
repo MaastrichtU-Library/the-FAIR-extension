@@ -1,0 +1,26 @@
+{
+  "name": "the-fair-extension",
+  "version": "0.1.1",
+  "description": "A web browser extension to evaluate Digital Object FAIRness",
+  "main": "background.js",
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaastrichtU-Library/the-FAIR-extension.git"
+  },
+  "keywords": [
+    "fair-data",
+    "fair-digital-objects"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/MaastrichtU-Library/the-FAIR-extension/issues"
+  },
+  "homepage": "https://github.com/MaastrichtU-Library/the-FAIR-extension#readme"
+}
