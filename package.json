@@ -4,10 +4,11 @@
   "description": "A web browser extension to evaluate Digital Object FAIRness",
   "main": "background.js",
   "dependencies": {
+    "browserify": "^17.0.0",
     "xmlhttprequest": "^1.8.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "browserify popup.js -o dist/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -15,7 +16,8 @@
   },
   "keywords": [
     "fair-data",
-    "fair-digital-objects"
+    "fair-digital-objects",
+    "chrome-extension"
   ],
   "author": "",
   "license": "Apache-2.0",
