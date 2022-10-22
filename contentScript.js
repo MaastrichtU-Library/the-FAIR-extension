@@ -7,13 +7,15 @@
 async function highlightSearchTerms()
 {
   try {
+
     //Use html to find DOI's using regular expression
     var bodyText = document.body.innerHTML; 
     var searchTerm = "doi";
     var end = "</p>";
     //HTML code used to highlight DOI's
-    var highlightStartTag = "<font style='color:blue; background-color:yellow;'>";
+    var highlightStartTag = "<font style= \"color: white; background-color:#ea512a;\">";
     var highlightEndTag = "</font>";
+   
     //Find dois in HTML code and add to array 
     const dois = [];
     var index = 0;
@@ -36,17 +38,23 @@ async function highlightSearchTerms()
               check += 1 ; 
             }
             var text = bodyText.substr(i,check);
-            // regular expression
+            // regular expression for DOI's
             var info = text.match(/\b10\.(\d+\.*)+[\/](([^\s\.])+\.*)+\b/);
             // highlight DOI's if any are found
             if(info != null){
               console.log(info[0])
-              newText += bodyText.substr(0, i+info.index) + highlightStartTag +  bodyText.substr(i+info.index, info[0].length ) + highlightEndTag  ;
+              var id = bodyText.substr(i+info.index, info[0].length )
+              // Adds two buttons next to DOI, for redirection to DOI and for FAIR evaluation
+              var DOI = "<button  id=\"d"+ id+"\" style= \" background-color: #ea512a; border: none; color: white; text-align: center; text-decoration: none; display: inline-block; font-size: 8px; margin: 4px 2px; cursor: pointer; font-family: Open Sans;\"> DOI</button>"
+              var eval = "<button id=\""+ id+"\" style= \" background-color: #20a5db; border: none; color: white; text-align: center; text-decoration: none; display: inline-block; font-size: 8px; margin: 4px 0px; cursor: pointer; font-family: Open Sans;\"> Evaluate</button>"
+              // adds the highlight tags in addition to the buttons
+              newText += bodyText.substr(0, i+info.index) + highlightStartTag +  bodyText.substr(i+info.index, info[0].length )+highlightEndTag + DOI + eval  ;
               dois[index] = bodyText.substr(i+info.index, info[0].length );
               index++;
             }
             else{
-              newText += bodyText.substr(0, i) + bodyText.substr(i, check-1) ;
+              //if no DOI is found, the text is left as it is
+              newText += bodyText.substr(0, check-1);
             }
             bodyText = bodyText.substr(i + check-1);
             lcBodyText = bodyText.toLowerCase();
@@ -59,12 +67,14 @@ async function highlightSearchTerms()
     }
     // set the new highlighted text as the new document's HTML
     document.body.innerHTML = newText;
-    // Send DOI's to Background json as a message
-    chrome.runtime.sendMessage({
-      data: dois // send data to background
-    });
+    // assign onclick function for list of DOI's
+    for (let i = 0; i < dois.length; i++) {
+      document.getElementById("d"+dois[i]).onclick = function () { dir_url(dois[i]); };
+      document.getElementById(dois[i]).onclick = function () { sendCurrent(dois[i]); };
 
-    return dois;
+    }
+
+    
   }
 
 
@@ -78,8 +88,17 @@ async function highlightSearchTerms()
   
  
 }
-
-
+//Redirect user to the DOI
+function dir_url(id){
+  chrome.runtime.sendMessage({redirect:"https://doi.org/" + id  });
+}
+//Send
+function sendCurrent(id){
+  chrome.runtime.sendMessage({
+    data: id // send data to background
+  });
+  document.getElementById(id).innerText ="Open the extension for results";
+}
 // initiates functions when a website is visited
 highlightSearchTerms();
 
