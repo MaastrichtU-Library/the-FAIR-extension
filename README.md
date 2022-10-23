@@ -23,11 +23,14 @@ the FAIR extension
 STEP 1: open the website and give access to the extension.<br>
 <img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/user1.png" alt="logo" lign="middle" style="width: 60%; height: 60%"/>
 
-STEP 2: The DOI's will be detected and highlighted, next step would be clicking the extension again<br>
+STEP 2: The DOI's will be detected and highlighted, next step would be either clicking on "DOI" button to redirect to the detected DOI, or evaluate the DOI, in this example we will try evaluating.<br>
 <img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/user2.png" alt="logo" lign="middle" style="width: 60%; height: 60%"/>
 
-STEP 3: The list of DOI's will be previewed, the FAIR score of the first detected DOI can also be seen. <br>
+STEP 3: After pressing on "evaluate", the extesnion has to be opened from the icon on the top right. <br>
 <img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/user3.png" alt="logo" lign="middle" style="width: 60%; height: 60%"/>
+
+STEP 4: Finally, you can see the results of the evaluated DOI. <br>
+<img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/user4.png" alt="logo" lign="middle" style="width: 60%; height: 60%"/>
 
 
 ---
