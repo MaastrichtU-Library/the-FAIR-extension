@@ -1,32 +1,47 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
 
----
-abstract: "The FAIR extension, an open-source web browser extension that allows researchers to do FAIRness evaluations directly to the web source"
+cff-version: 1.2.0
+title: the FAIR extension
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
 authors:
-  -
-    affiliation: "Maastricht University"
-    family-names: Hernández Serrano
-    given-names: "Pedro V."
-    orcid: "https://orcid.org/0000-0002-4646-4666"
-  -
-    affiliation: "Maastricht University"
+  - family-names: Hernandez Serrano
+    email: p.hernandezserrano@maastrichtuniversity.nl
+    affiliation: Maastricht University
+    orcid: 'https://orcid.org/0000-0002-4646-4666'
+    given-names: Pedro V
+  - family-names: Al-Saeedi
+    email: a.al-saeedi@student.maastrichtuniversity.nl
+    affiliation: Maastricht University
+    given-names: Ali
+  - given-names: Vincent
     family-names: Emonet
-    given-names: Vincent
-    orcid: ""
-  -
-    affiliation: "Maastricht University"
-    family-names: Al-Saeedi
-    given-names:  Ali
-    orcid: """
-
-cff-version: "1.0.0"
-date-released: "2022-10-01"
+    email: vincent.emonet@maastrichtuniversity.nl
+    affiliation: Maastricht University
+    orcid: 'https://orcid.org/0000-0002-1501-1082'
+  - given-names: Faruk
+    family-names: Diblen
+    email: f.diblen@esciencecenter.nl
+    affiliation: Netherlands eScience Center
+    orcid: 'https://orcid.org/0000-0002-0989-929X'
+identifiers:
+  - type: doi
+    value: 10.3897/rio.8.e95006
+    description: >-
+      Zenodo unique identifier linked to the Github
+      repository release
+repository-code: >-
+  https://github.com/MaastrichtU-Library/the-FAIR-extension
+url: >-
+  https://maastrichtu-library.github.io/the-FAIR-extension/
 keywords:
-  - "FAIR assessment"
-  - "FAIR  Digital Objects"
-  - "FAIR  metrics"
-license: "MIT License"
-message: "If you use this software, please cite it using these metadata."
-repository-code: "https://github.com/MaastrichtU-Library/the-FAIR-extension"
-title: theFAIRextension
-version: "0.1.1"
-...
+  - Chrome Extension
+  - FAIR data
+  - FAIR digital objects
+license: Apache-2.0
+commit: eedd3ef6ac939bb2f2904a6ecd6e8e946bf37d52
+version: 1.0.0
+date-released: '2022-10-24'
