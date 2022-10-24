@@ -1,7 +1,7 @@
 {
   "name": "the FAIR extension",
   "version": "1.0.0",
-  "description": "An open-source, user-friendly web browser extension that allows researchers to do FAIRness evaluations directly to the web source.",
+  "description": "An open-source web browser extension that allows researchers to do FAIRness evaluations directly to the web source.",
   
   "web_accessible_resources": [{ 
  "resources": ["index.html"],

@@ -1,6 +1,6 @@
 
 ---
-abstract: "The FAIR extension, an open-source, user-friendly web browser extension that allows researchers to do FAIRness evaluations directly to the web source"
+abstract: "The FAIR extension, an open-source web browser extension that allows researchers to do FAIRness evaluations directly to the web source"
 authors:
   -
     affiliation: "Maastricht University"

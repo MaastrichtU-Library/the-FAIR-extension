@@ -1,11 +1,12 @@
 # the FAIR extension
 
 [![npm version](https://badge.fury.io/js/npm.svg)](https://badge.fury.io/js/npm)
-[![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B%20%20%E2%97%8B-orange)](https://fair-software.eu)
+[![npm version](https://img.shields.io/badge/license-Apache%202-blue)](https://opensource.org/licenses/Apache-2.0)
+[![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B-yellow)](https://fair-software.eu)
 
-<div>
+<p align="center">
 <img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/theFAIRextensionLogo.png" alt="logo" class="center" style="width: 50%; height: 50%"/>
-</div>
+</p>
 
 "The FAIR extension", an open-source web browser extension that allows researchers to do FAIR metrics evaluations directly to the web source.<br>
 
@@ -20,19 +21,15 @@
 6. Click on Details<br>
 7. Change Site Access from "On all sites" to "On click"  <br>
 
-### Now you are set to use the extension on the page of your choice, let us see an example of how the extension works, for this example we will look at [this article](https://www.frontiersin.org/articles/10.3389/frcmn.2022.824593/full):
+### Now you are set to use the extension on the page of your choice, let us see an example of how the extension works, for this example we will look at [this dataset](https://dataverse.nl/dataset.xhtml?persistentId=doi:10.34894/Q80QUE):
 
 - STEP 1: open the website and give access to the extension.<br>
-<img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/user1.png" alt="logo" lign="middle" style="width: 60%; height: 60%"/>
 
 - STEP 2: The DOI's will be detected and highlighted, next step would be either clicking on "DOI" button to redirect to the detected DOI, or evaluate the DOI, in this example we will try evaluating.<br>
-<img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/user2.png" alt="logo" lign="middle" style="width: 60%; height: 60%"/>
 
 - STEP 3: After pressing on "evaluate", the extesnion has to be opened from the icon on the top right. <br>
-<img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/user3.png" alt="logo" lign="middle" style="width: 60%; height: 60%"/>
 
 - STEP 4: Finally, you can see the results of the evaluated DOI. <br>
-<img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/user4.png" alt="logo" lign="middle" style="width: 60%; height: 60%"/>
 
 
 ---
