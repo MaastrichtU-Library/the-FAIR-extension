@@ -4,13 +4,21 @@
 // license that can be found in the LICENSE file or at
 // https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/LICENSE
 
-// Allows communication between background.js and bundle.js
+// Allows communication between .js files
 
 //listener that recieves messages from contnet script
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse){
-        //Stores the list of DOI's in chrome storage with key: "key"
-        chrome.storage.local.set({key: request.data}, function() {
-          });
-    }
+      if(request.redirect == null){
+       //Stores the list of DOI's in chrome storage with key: "key"
+       chrome.storage.local.set({key: request.data}, function() {
+         });
+       }
+        else{
+            //Redirects to a specified URL
+           chrome.tabs.update(sender.tab.id, {url: request.redirect});
+           
+       }
+   }
 );
+

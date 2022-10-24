@@ -1,33 +1,38 @@
-the FAIR extension
+# the FAIR extension
 
 [![npm version](https://badge.fury.io/js/npm.svg)](https://badge.fury.io/js/npm)
 [![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8F%20%20%E2%97%8B%20%20%E2%97%8B-orange)](https://fair-software.eu)
 
-<img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/theFAIRextensionLogo.png" alt="logo" lign="middle" style="width: 50%; height: 50%"/>
+<div>
+<img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/theFAIRextensionLogo.png" alt="logo" class="center" style="width: 50%; height: 50%"/>
+</div>
 
-"The FAIR extension", an open-source, user-friendly web browser extension that allows researchers to do FAIRness evaluations directly to the web source.<br>
+"The FAIR extension", an open-source web browser extension that allows researchers to do FAIR metrics evaluations directly to the web source.<br>
 
 ---
 ## Quickstart for Users
 ### To run the extension as user:<br>
-1- Download the project as Zip folder <br>
-2- Extract the folder<br>
-3- Go to Extensions page in Google Chrome<br>
-4- Activate Developer mode on top-right<br>
-5-Load unpacked -> downloaded project folder -> select folder<br>
-6-Click on Details<br>
-7-Change Site Access from "On all sites" to "On click"  <br>
+1. Download the project as Zip folder <br>
+2. Extract the folder<br>
+3. Go to Extensions page in Google Chrome<br>
+4. Activate Developer mode on top-right<br>
+5. Load unpacked -> downloaded project folder -> select folder<br>
+6. Click on Details<br>
+7. Change Site Access from "On all sites" to "On click"  <br>
 
-### Now you are set to use the extension on the page of your choice, let us see an example of how the extension works, for this example we will look at the following article (https://www.frontiersin.org/articles/10.3389/frcmn.2022.824593/full) :
+### Now you are set to use the extension on the page of your choice, let us see an example of how the extension works, for this example we will look at [this article](https://www.frontiersin.org/articles/10.3389/frcmn.2022.824593/full):
 
-STEP 1: open the website and give access to the extension.<br>
+- STEP 1: open the website and give access to the extension.<br>
 <img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/user1.png" alt="logo" lign="middle" style="width: 60%; height: 60%"/>
 
-STEP 2: The DOI's will be detected and highlighted, next step would be clicking the extension again<br>
+- STEP 2: The DOI's will be detected and highlighted, next step would be either clicking on "DOI" button to redirect to the detected DOI, or evaluate the DOI, in this example we will try evaluating.<br>
 <img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/user2.png" alt="logo" lign="middle" style="width: 60%; height: 60%"/>
 
-STEP 3: The list of DOI's will be previewed, the FAIR score of the first detected DOI can also be seen. <br>
+- STEP 3: After pressing on "evaluate", the extesnion has to be opened from the icon on the top right. <br>
 <img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/user3.png" alt="logo" lign="middle" style="width: 60%; height: 60%"/>
+
+- STEP 4: Finally, you can see the results of the evaluated DOI. <br>
+<img src="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/img/user4.png" alt="logo" lign="middle" style="width: 60%; height: 60%"/>
 
 
 ---
@@ -39,17 +44,18 @@ STEP 3: The list of DOI's will be previewed, the FAIR score of the first detecte
 3- Use a code editor such as visual studio code to edit the files.<br>
 ### Changes to those files will do the following:
  - Manifest.json: This files controls the structure of the extension from the most basic elements such as the title to the most complex such as the permissions and the workflow of the extension.<br> <br>
- - background.js: This file is considered the medium between the files of the extension, maintains the communication between content scripts and popup json files.<br> <br>
+ - background.js: This file is considered the medium between the files of the extension, maintains the communication between content scripts and popup json files, it also deals with the redirection to the DOI.<br> <br>
 
- - popup.js: This file is trigerred using index.html. Its job is to edit anything that the user views on the popup such as the list of DOIs. Additionally, this file controls the communcation between the extension and the FAIR-enough API. <br>
+ - popup.js: This file is trigerred using index.html. Its job is to edit anything that the user views on the popup such as the evaluation of the DOI and previewing it on the popup that the user sees. Additionally, this file controls the communcation between the extension and the FAIR-enough API. <br>
  __NOTE: any changes to popup.js file would not change anything as the file should be converted into bundle.js, the steps will be shown below .__
  <br> <br>
  
   - index.html: The frontend of the chrome extension's popup. The style of the extension can be edited in this file. <br> <br>
   
-  - contentScript.js: This file is trigerred when the extension is clicked. Injecting scripts into the website, which is used to highlight the text, is done here. Any changes to the website has to be included in this file. This file is responsible for detecting DOI's in the webpage, injecting code to highlight them, and sending the list of DOI's to background.js.   <br> <br>
-  - bundle.js: This file is the result of popup.js + the libraries used in that file. This is done becuase chrome extensions do not understand packages. Therefore, Browserify, an npm package, takes a js file and includes the whole code from a library in a file.
+  - contentScript.js: This file is trigerred when the extension is given access. Injecting scripts into the website, which is used to highlight the text, is done here. Any changes to the website has to be included in this file. This file is responsible for detecting DOI's in the webpage, injecting code to highlight them and adding buttons next to them, and sending the indicated DOI to background.js for evaluation.   <br> <br>
+  - bundle.js: This file is the result of popup.js + the libraries used in that file. This is done becuase chrome extensions do not understand packages. Therefore, Browserify, an npm package, takes a js file and includes the whole code from the used libraries in a file.
   __Note:Do not change this file manually as this is a file automatically generated by Browserify.__ <br> <br>
+
 ### How to edit popup.js:
 After applying changes to popup.js you have to do the following:<br>
 1- Make sure you can use npm from the terminal.<br>
@@ -102,27 +108,30 @@ Following the Software Sustainability Institute’s software evaluation approach
 
 Copyright (c) 2022 Maastricht University Library
 
-[The code contained in this Github repository](https://github.com/MaastrichtU-Library/the-FAIR-extension) is free software: you can redistribute it and/or modify it under the terms of the [MIT License](https://mit-license.org/) compatible with many copyleft licenses such as the GNU General Public License.
+[The code contained in this Github repository](https://github.com/MaastrichtU-Library/the-FAIR-extension) is free software: you can redistribute it and/or modify it under the terms of the [Apache 2.0 License](https://opensource.org/licenses/Apache-2.0) compatible with many copyleft licenses such as the GNU General Public License.
 
 ### - Research Software Citation
 
 Machine-actionable ciation file: [CITATION.cff](https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/CITATION.cff)  
 Should you require another format for citation you can convert it using the [cff-converter Tool](https://github.com/citation-file-format/cff-converter-python)
 
-### - Preprint Citation 
+### - Paper Citation 
 
 ```
-@misc{hernandez_serrano_pedro_v_2022_7165270,
-  author       = {Hernández Serrano, Pedro V. and
-                  Emonet, Vincent},
-  title        = {{The FAIR extension: A web browser extension to 
-                   evaluate Digital Object FAIRness}},
-  month        = oct,
-  year         = 2022,
-  publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.7165270},
-  url          = {https://doi.org/10.5281/zenodo.7165270}
+@article{10.3897/rio.8.e95006,
+	author = {Pedro Hernandez Serrano and Vincent Emonet},
+	title = {The FAIR extension: A web browser extension to evaluate Digital Object FAIRness},
+	volume = {8},
+	number = {},
+	year = {2022},
+	doi = {10.3897/rio.8.e95006},
+	publisher = {Pensoft Publishers},
+	pages = {e95006},
+	URL = {https://doi.org/10.3897/rio.8.e95006},
+	eprint = {https://doi.org/10.3897/rio.8.e95006},
+	journal = {Research Ideas and Outcomes}
 }
+
 ```
 
 
