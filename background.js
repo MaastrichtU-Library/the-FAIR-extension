@@ -1,24 +1,20 @@
-// Copyright 2022 Maastricht University Library
 
-// Use of this source code is governed by an Apache 2.0-style
-// license that can be found in the LICENSE file or at
-// https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/LICENSE
-
-// Allows communication between .js files
-
-//listener that recieves messages from contnet script
-chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse){
-      if(request.redirect == null){
-       //Stores the list of DOI's in chrome storage with key: "key"
-       chrome.storage.local.set({key: request.data}, function() {
-         });
-       }
-        else{
-            //Redirects to a specified URL
-           chrome.tabs.update(sender.tab.id, {url: request.redirect});
-           
-       }
-   }
-);
-
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://api.fair-enough.semanticscience.org/evaluations', true);
+    xhr.setRequestHeader('Accept', 'application/json');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        var jsonResponse = JSON.parse(xhr.responseText);
+        sendResponse({data: jsonResponse});
+      }
+    };
+    var data = JSON.stringify({
+      'subject': 'https://doi.org/' + request.doi,
+      'collection': 'fair-enough-data'
+    });
+    xhr.send(data);
+    return true; // keeps the message channel open until sendResponse is called
+  });
+  
