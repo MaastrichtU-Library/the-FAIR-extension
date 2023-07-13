@@ -1,0 +1,163 @@
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-size: 0.9em;
+    padding: 0 1em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90vh; /* Limit the height of the flexbox */
+}
+
+.toppane {
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.center {
+    display: block;
+    margin: auto;
+    padding: 1em 0;
+    width: 150px;
+    height: 150px;
+}
+
+.boxed, .boxed2, .boxed3 {
+    background-color: lightgray;
+    text-align: center;
+    padding: 1em;
+    height: 100px; /* Restrict the height */
+    overflow-y: auto; /* Add scrollbar if content overflows */
+    flex-shrink: 0;
+    margin-bottom: 1em; /* Add margin at the bottom */
+    font-size: 1.3em;
+}
+
+.boxed2 {
+    background-color: lightblue;
+    margin: 2px 0px;
+}
+
+.boxed3 {
+    background-color: lightblue;
+    border: 0.01px solid lightgray;
+    padding: 1em;
+    flex-shrink: 0;
+}
+
+#find {
+    background-color: #bce3f8;
+}
+
+#access {
+    background-color: #f9e0b6;
+}
+
+#inter {
+    background-color: #c8e6c9;
+}
+
+#reuse {
+    background-color: #d1c4e9;
+}
+
+.doiList {
+    width: 100%;
+    padding :1px;
+    font-family: "Open Sans";
+    background-color: white;
+}
+
+.doiList li {
+    list-style: none;
+    border: none;
+    padding: 10px 20px;
+    font-family: "Open Sans";
+    position: relative;
+}
+
+.doiList button {
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #babfc3;
+    font-family: "Open Sans";
+    min-height: 22px;
+    min-width: 22px;
+    color: #202223;
+    background: #ffffff;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px;
+    position: absolute;
+    right: 10px;
+}
+
+button a, a:hover, a:focus, a:active  {
+    color: inherit;
+    text-decoration: none;
+}
+
+footer {
+    padding: 1em;
+    font-size: smaller;
+    flex-shrink: 0;
+    margin-top: 7em;
+}
+
+/* Responsive design */
+@media screen and (max-width: 600px) {
+    .container {
+        font-size: 0.7em;
+    }
+}
+
+/* the same as before */
+@keyframes growProgressBar {
+    0%, 33% { --pgPercentage: 0; }
+    100% { --pgPercentage: var(--value); }
+}
+
+@property --pgPercentage {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+}
+
+div[role="progressbar"] {
+    --size: 6rem;
+    --fg: #369;
+    --bg: #def;
+    
+    --pgPercentage: var(--value);
+    animation: growProgressBar 3s 1 forwards;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: 
+    radial-gradient(closest-side, white 80%, transparent 0 99.9%, white 0),
+    conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0)
+    ;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: calc(var(--size) / 5);
+    color: var(--fg);
+}
+
+div[role="progressbar"]::before {
+    counter-reset: percentage var(--value);
+    content: counter(percentage) '%';
+}
