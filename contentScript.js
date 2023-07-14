@@ -1,4 +1,4 @@
-// Copyright 2022 Maastricht University Library
+// Copyright 2023 Maastricht University Library
 
 // Use of this source code is governed by an Apache 2.0-style
 // license that can be found in the LICENSE file or at
@@ -15,7 +15,6 @@ async function highlightSearchTerms()
     //HTML code used to highlight DOI's
     var highlightStartTag = "<font style= \"color: white; background-color:#ea512a;\">";
     var highlightEndTag = "</font>";
-   
     //Find dois in HTML code and add to array 
     const dois = [];
     var index = 0;
@@ -76,17 +75,11 @@ async function highlightSearchTerms()
 
     
   }
-
-
   
-
-    
-    
  catch (error) {
     throw error;
 }
   
- 
 }
 //Redirect user to the DOI
 function dir_url(id){
@@ -101,7 +94,3 @@ function sendCurrent(id){
 }
 // initiates functions when a website is visited
 highlightSearchTerms();
-
-
-
-

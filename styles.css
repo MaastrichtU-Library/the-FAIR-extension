@@ -53,6 +53,7 @@ body, html {
     border: 0.01px solid lightgray;
     padding: 1em;
     flex-shrink: 0;
+    font-size: 9px;
 }
 
 #find {
@@ -161,3 +162,10 @@ div[role="progressbar"]::before {
     counter-reset: percentage var(--value);
     content: counter(percentage) '%';
 }
+
+#spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
