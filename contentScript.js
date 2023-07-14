@@ -4,53 +4,93 @@
 // license that can be found in the LICENSE file or at
 // https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/LICENSE
 
-async function highlightSearchTerms() {
+async function highlightSearchTerms()
+{
   try {
-    let bodyText = document.body.innerHTML; 
-    const searchTerm = "doi";
-    const highlightStartTag = "<font style= \"color: white; background-color:#ea512a;\">";
-    const highlightEndTag = "</font>";
-    
+
+    //Use html to find DOI's using regular expression
+    var bodyText = document.body.innerHTML; 
+    var searchTerm = "doi";
+    var end = "</p>";
+    //HTML code used to highlight DOI's
+    var highlightStartTag = "<font style= \"color: white; background-color:#ea512a;\">";
+    var highlightEndTag = "</font>";
+    //Find dois in HTML code and add to array 
     const dois = [];
-    const doiRegex = /\b10\.\d{4,9}\/[-._;()/:A-Z0-9]+\b/gi;
+    var index = 0;
+    var newText = "";
+    var i = -1;
+    var lcSearchTerm = searchTerm.toLowerCase();
+    var lcBodyText = bodyText.toLowerCase();
+    var check = searchTerm.length;
+    while (bodyText.length > 0) {
+      i = lcBodyText.indexOf(lcSearchTerm, i+1);
+      if (i < 0) {
+        newText += bodyText;
+        bodyText = "";
+      } else {
+        // skip anything inside an HTML tag
+        if (bodyText.lastIndexOf(">", i) >= bodyText.lastIndexOf("<", i)) {
+          // skip anything inside a <script> block
+          if (lcBodyText.lastIndexOf("/script>", i) >= lcBodyText.lastIndexOf("<script", i)) {
+            while(bodyText.substr(i,check).includes("<") == false){
+              check += 1 ; 
+            }
+            var text = bodyText.substr(i,check);
+            // regular expression for DOI's
+            var info = text.match(/\b10\.(\d+\.*)+[\/](([^\s\.])+\.*)+\b/);
+            // highlight DOI's if any are found
+            if(info != null){
+              console.log(info[0])
+              var id = bodyText.substr(i+info.index, info[0].length )
+              // Adds two buttons next to DOI, for redirection to DOI and for FAIR evaluation
+              var DOI = "<button  id=\"d"+ id+"\" style= \" background-color: #ea512a; border: none; color: white; text-align: center; text-decoration: none; display: inline-block; font-size: 8px; margin: 4px 2px; cursor: pointer; font-family: Open Sans;\"> DOI</button>"
+              var eval = "<button id=\""+ id+"\" style= \" background-color: #20a5db; border: none; color: white; text-align: center; text-decoration: none; display: inline-block; font-size: 8px; margin: 4px 0px; cursor: pointer; font-family: Open Sans;\"> Evaluate</button>"
+              // adds the highlight tags in addition to the buttons
+              newText += bodyText.substr(0, i+info.index) + highlightStartTag +  bodyText.substr(i+info.index, info[0].length )+highlightEndTag + DOI + eval  ;
+              dois[index] = bodyText.substr(i+info.index, info[0].length );
+              index++;
+            }
+            else{
+              //if no DOI is found, the text is left as it is
+              newText += bodyText.substr(0, check-1);
+            }
+            bodyText = bodyText.substr(i + check-1);
+            lcBodyText = bodyText.toLowerCase();
+            i = -1;
+            check = searchTerm.length;
 
-    let match;
-    while ((match = doiRegex.exec(bodyText)) !== null) {
-      const id = match[0];
-      dois.push(id);
-
-      // Adds two buttons next to DOI, for redirection to DOI and for FAIR evaluation
-      const DOI = `<button id="d${id}" style="background-color: #ea512a; border: none; color: white; text-align: center; text-decoration: none; display: inline-block; font-size: 8px; margin: 4px 2px; cursor: pointer; font-family: Open Sans;">DOI</button>`;
-      const evalButton = `<button id="${id}" style="background-color: #20a5db; border: none; color: white; text-align: center; text-decoration: none; display: inline-block; font-size: 8px; margin: 4px 0px; cursor: pointer; font-family: Open Sans;">Evaluate</button>`;
-      // highlights DOI and adds the buttons
-      const replacement = `${highlightStartTag}${id}${highlightEndTag}${DOI}${evalButton}`;
-      bodyText = bodyText.substring(0, match.index) + replacement + bodyText.substring(match.index + id.length);
-      
-      // adjust the last index of regex due to the addition of replacement string
-      doiRegex.lastIndex += replacement.length - id.length;
+          }
+        }
+      }
     }
-    
-    document.body.innerHTML = bodyText;
-    
+    // set the new highlighted text as the new document's HTML
+    document.body.innerHTML = newText;
     // assign onclick function for list of DOI's
     for (let i = 0; i < dois.length; i++) {
       document.getElementById("d"+dois[i]).onclick = function () { dir_url(dois[i]); };
       document.getElementById(dois[i]).onclick = function () { sendCurrent(dois[i]); };
-    }
-  } catch (error) {
-    console.error(error);
-  }
-}
 
+    }
+
+    
+  }
+  
+ catch (error) {
+    throw error;
+}
+  
+}
+//Redirect user to the DOI
 function dir_url(id){
   chrome.runtime.sendMessage({redirect:"https://doi.org/" + id  });
 }
-
+//Send
 function sendCurrent(id){
   chrome.runtime.sendMessage({
     data: id // send data to background
   });
-  document.getElementById(id).innerText = "Open the extension for results";
+  document.getElementById(id).innerText ="Open the extension for results";
 }
-
+// initiates functions when a website is visited
 highlightSearchTerms();
