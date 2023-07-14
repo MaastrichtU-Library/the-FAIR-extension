@@ -7,18 +7,12 @@
 // Allows communication between .js files
 
 //listener that recieves messages from contnet script
-chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse){
-      if(request.redirect == null){
-       //Stores the list of DOI's in chrome storage with key: "key"
-       chrome.storage.local.set({key: request.data}, function() {
-         });
-       }
-        else{
-            //Redirects to a specified URL
-           chrome.tabs.update(sender.tab.id, {url: request.redirect});
-           
-       }
-   }
-);
-
+chrome.runtime.onMessage.addListener((request, sender) => {
+  if (request.redirect) {
+    // Redirects to a specified URL
+    chrome.tabs.update(sender.tab.id, {url: request.redirect});
+  } else if (request.data) {
+    // Stores the list of DOI's in chrome storage with key: "key"
+    chrome.storage.local.set({key: request.data});
+  }
+});
