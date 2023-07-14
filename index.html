@@ -15,6 +15,9 @@
 
   <main class="container"> 
     <section class="leftpane">
+      <div id="spinner" style="display: none;">
+        <img src="icons/load.gif" alt="Loading..." />
+      </div>
       <div id="evaluation" class="boxed center2">🎓️ No evaluation yet</div>
       <div id="score" class="center" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
     </section>
@@ -31,12 +34,14 @@
   <footer>
     <div class="w3-container">
       <div class="w3-panel w3-pale-blue w3-leftbar w3-rightbar w3-border-blue">
-        <p>Copyright (c) 2023 Maastricht University Library</p>
+        <p>More info? Visit the<a href="https://github.com/MaastrichtU-Library/the-FAIR-extension">Github repo 😸</a></p>
         <p><a href="https://github.com/MaastrichtU-Library/the-FAIR-extension/blob/main/disclaimer.md">Privacy Disclaimer</a> last update 24/10/22</p>
         <p><a href="https://github.com/MaastrichtU-Library/the-FAIR-extension/releases/tag/Beta">the FAIR extension</a> v1.1.0 - beta</p>
+        <p>Copyright (c) 2023 Maastricht University Library</p>
       </div>
     </div>
   </footer>
 </body>
 <script src="contentScript.js"></script>
+<script src="popup.js"></script>
 </html>
