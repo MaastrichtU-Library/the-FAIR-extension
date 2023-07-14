@@ -1,4 +1,4 @@
-// Copyright 2022 Maastricht University Library
+// Copyright 2023 Maastricht University Library
 
 // Use of this source code is governed by an Apache 2.0-style
 // license that can be found in the LICENSE file or at
