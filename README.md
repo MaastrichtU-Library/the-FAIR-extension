@@ -21,18 +21,17 @@ __Note:__ The evaluation process takes 2 to 5 seconds, depending on the website.
 
 **Try the extension with some of the following examples:**
 
-FAIR principle publication: [doi.org/10.1038/sdata.2016.18](https://doi.org/10.1038/sdata.2016.18)  
-Zenodo RDFLib library publication: [doi.org/10.5281/zenodo.1486394](https://doi.org/10.5281/zenodo.1486394)  
-Wikidata DOI publication: [doi.org/10.1016/J.JBI.2019.103292](https://doi.org/10.1016/J.JBI.2019.103292)  
-Dataverse NL publication: [doi.org/10.34894/Q80QUE](https://doi.org/10.34894/Q80QUE)  
-FAIR Data Point dataset publication: [w3id.org/ejp-rd/fairdatapoints/wp13/dataset/c5414323-eab1-483f-a883-77951f246972](https://w3id.org/ejp-rd/fairdatapoints/wp13/dataset/c5414323-eab1-483f-a883-77951f246972)  
-Pangea data repository publication: [doi.org/10.1594/PANGAEA.908011](https://doi.org/10.1594/PANGAEA.908011)  
-Bio2RDF publication: [doi.org/10.1016/j.jbi.2008.03.004](https://doi.org/10.1016/j.jbi.2008.03.004)  
-Kaggle dataset publication: [www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge)  
-RIVM data repository publication: [data.rivm.nl/meta/srv/eng/rdf.metadata.get?uuid=1c0fcd57-1102-4620-9cfa-441e93ea5604&approved=true](https://data.rivm.nl/meta/srv/eng/rdf.metadata.get?uuid=1c0fcd57-1102-4620-9cfa-441e93ea5604&approved=true)  
-NeuroDKG publication: [doi.org/10.5281/zenodo.5541440](https://doi.org/10.5281/zenodo.5541440)  
-Human Protein Atlas page publication: [www.proteinatlas.org/ENSG00000084110-HAL](https://www.proteinatlas.org/ENSG00000084110-HAL)  
-ORCID profile publication: [orcid.org/0000-0002-1501-1082](https://orcid.org/0000-0002-1501-1082)  
+- FAIR principle publication: [doi.org/10.1038/sdata.2016.18](https://doi.org/10.1038/sdata.2016.18)  
+- Zenodo RDFLib library: [doi.org/10.5281/zenodo.1486394](https://doi.org/10.5281/zenodo.1486394)  
+- Wikidata DOI publication: [doi.org/10.1016/J.JBI.2019.103292](https://doi.org/10.1016/J.JBI.2019.103292)  
+- Dataverse NL dataset: [doi.org/10.34894/Q80QUE](https://doi.org/10.34894/Q80QUE)  
+- FAIR Data Point dataset: [w3id.org/ejp-rd/fairdatapoints/wp13/dataset/c5414323-eab1-483f-a883-77951f246972](https://w3id.org/ejp-rd/fairdatapoints/wp13/dataset/c5414323-eab1-483f-a883-77951f246972)  
+- Pangea dataset: [doi.org/10.1594/PANGAEA.908011](https://doi.org/10.1594/PANGAEA.908011)  
+- Bio2RDF publication: [doi.org/10.1016/j.jbi.2008.03.004](https://doi.org/10.1016/j.jbi.2008.03.004)  
+- Kaggle dataset: [www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge](https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge)  
+- NeuroDKG publication: [doi.org/10.5281/zenodo.5541440](https://doi.org/10.5281/zenodo.5541440)  
+- Human Protein Atlas page: [proteinatlas.org/ENSG00000084110-HAL](https://www.proteinatlas.org/ENSG00000084110-HAL)  
+- ORCID profile: [orcid.org/0000-0002-1501-1082](https://orcid.org/0000-0002-1501-1082)  
 
 ---
 ## Quickstart for Developers
