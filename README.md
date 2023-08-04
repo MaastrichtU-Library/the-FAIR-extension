@@ -19,6 +19,11 @@
 
 __Note:__ The evaluation process takes 2 to 5 seconds, depending on the website. ⚠️
 
+__Warning:__ When the extension is active, it can mess with some websites (e.g. YouTube). This is a known bug, and we'll solve it soon.
+A workaround is to select "On click" access. This config indicates that the extension should only work when you click it, not "all the time."
+
+**👉🏼 [chrome://extensions/](chrome://extensions/) > Details > Site access > On click**
+
 **Try the extension with some of the following examples:**
 
 - FAIR principle publication: [doi.org/10.1038/sdata.2016.18](https://doi.org/10.1038/sdata.2016.18)  
